@@ -15,7 +15,7 @@ public class Main {
     protected static String parent;
 
     // WebElements
-    protected WebElement product, quantityBox;
+    protected WebElement addToCartButton, quantityBox;
 
     public Main() {
         // Initialize Edge browser
@@ -40,11 +40,11 @@ public class Main {
         quantityBox.sendKeys(quantity); // Enter new quantity
 
         // Locate the Add to Cart button using product name
-        product = driver.findElement(By.xpath(parent + "/div[@class='product-action']/button"));
-        product.click();//click the Add to Cart button
+        addToCartButton= driver.findElement(By.xpath(parent + "/div[@class='product-action']/button"));
+        addToCartButton.click();//click the Add to Cart button
 
         //check if the product was added to the cart or not
-        if(product.getText().equals("✔ ADDED")){
+        if(addToCartButton.getText().equals("✔ ADDED")){
             System.out.println(quantity+" Nos. of "+product_Name+" was added to the cart ✔");
         }
         else {
